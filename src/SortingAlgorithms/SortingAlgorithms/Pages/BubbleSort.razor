@@ -1,0 +1,21 @@
+﻿@page "/bubble-sort"
+@using SortingAlgorithms.Application
+@using SortingAlgorithms.Application.Algorithms
+
+@if (execution == null)
+{
+    <span>Running bubblesort</span>
+}
+else
+{
+    <ProgressViewer Execution="execution"></ProgressViewer>
+}
+
+@code
+{
+    private Execution? execution { get; set; }
+    protected override void OnInitialized()
+    {
+        execution = Execution.Run(new []{21, 34, 56, 78}, new Application.Algorithms.BubbleSort());
+    }
+}
